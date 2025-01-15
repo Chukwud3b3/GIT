@@ -1,0 +1,154 @@
+Getting Started with Git
+1. Initializing a Git Repository
+
+To start tracking a project with Git, initialize a new repository:
+git init
+2. Cloning a Repository
+
+Copy an existing repository to your local machine:
+git clone <repository-url>
+3. Checking the Status
+
+View the current state of your repository:
+git status
+Working with Changes
+4. Adding Changes
+
+Stage files for the next commit:
+
+git add <file>          # Add specific file
+git add .               # Add all changes
+5. Committing Changes
+Save your changes with a descriptive message:
+
+git commit -m "Your commit message here"
+6. Viewing Commit History
+Inspect past commits in your repository:
+
+git log                   # Detailed log
+
+
+git log --oneline         # Compact one-line summary
+Branch Management
+Branches allow you to work on features or fixes independently.
+
+7. Creating a New Branch
+git branch <branch-name>
+8. Switching Between Branches
+git checkout <branch-name>
+9. Creating and Switching in One Command
+git checkout -b <branch-name>
+10. Merging Branches
+Integrate changes from one branch into another:
+
+git merge <branch-name>
+11. Deleting a Branch
+git branch -d <branch-name>       # Delete after merge
+
+
+git branch -D <branch-name>       # Force delete
+Collaborating with Remote Repositories
+12. Adding a Remote Repository
+git remote add origin <repository-url>
+13. Pushing Changes
+Send commits to a remote repository:
+
+git push origin <branch-name>
+14. Pulling Changes
+Retrieve changes from a remote repository:
+
+git pull origin <branch-name>
+15. Fetching Updates
+View changes in the remote without merging:
+
+git fetch
+Undoing Changes
+16. Discarding Unstaged Changes
+git checkout -- <file>
+17. Unstaging Files
+Remove files from the staging area without deleting them:
+
+git reset <file>
+18. Resetting Commits
+Undo commits while keeping changes:
+
+git reset --soft HEAD~1   # Undo last commit but keep changes staged
+
+
+git reset --mixed HEAD~1  # Undo last commit and unstage changes
+
+
+git reset --hard HEAD~1   # Undo last commit and discard changes
+Stashing Work
+19. Stash Changes
+Save uncommitted work temporarily:
+
+git stash
+20. Apply Stashed Changes
+git stash apply
+21. View Stash List
+git stash list
+Inspecting and Comparing
+22. Viewing Differences
+Compare changes between the working directory and the staging area:
+
+git diff
+Compare staged changes with the last commit:
+
+git diff --staged
+23. Comparing Branches
+git diff <branch1>..<branch2>
+Rewriting History (Use With Caution!)
+24. Amending the Last Commit
+git commit --amend -m "Updated commit message"
+25. Rewriting Commit History
+Interactive rebase lets you edit multiple commits:
+
+git rebase -i HEAD~n
+Handling Conflicts
+26. Resolving Merge Conflicts
+When a conflict arises:
+
+Edit the conflicting files.
+Mark conflicts as resolved:
+git add <file>
+2. Complete the merge:
+
+git commit
+Advanced Tips for Git Pros
+27. Using Aliases
+Speed up frequently used commands:
+
+git config --global alias.st status
+
+
+git config --global alias.co checkout
+
+
+git config --global alias.br branch
+28. Shallow Cloning for Large Repos
+Clone only the latest commit:
+
+git clone --depth=1 <repository-url>
+29. Cherry-Picking Commits
+Apply specific commits from another branch:
+
+git cherry-pick <commit-hash>
+30. Bisecting to Find Bugs
+Pinpoint the commit introducing a bug:
+
+git bisect start
+
+
+git bisect bad                      # Mark current commit as bad
+
+
+git bisect good <commit-hash>       # Mark a known good commit
+
+
+Best Practices for Using Git
+Commit Often: Smaller, focused commits are easier to review and revert.
+Write Descriptive Commit Messages: Clearly describe what and why you've made changes.
+Use Branches Wisely: Create branches for features, fixes, and experiments.
+Pull Before You Push: Avoid conflicts by syncing with the remote before pushing.
+Don't Commit Secrets: Exclude sensitive information like API keys using .gitignore.
